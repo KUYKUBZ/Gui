@@ -726,3 +726,5 @@ function OwlLib.Content:newDropdown(title, callback, list, noCallbackOnStart)
 end;
 
 return OwlLib;
+
+return OwlLib.Content;
