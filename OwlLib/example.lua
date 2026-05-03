@@ -1,40 +1,24 @@
-local OwlHub = loadstring(game:HttpGet("https://raw.githubusercontent.com/KUYKUBZ/Gui/refs/heads/main/OwlLib/src.luau",true))()
-
-local PageName = OwlHub:new("Page Name") -- Page name is the title.
-
-function ButtonPress(State)
-print("Button was pressed")
-end
-
-Page1:newBtn("Toggle Button!", ButtonPress, false) -- false will indicate if it is a normal button.
-
-function ButtonPress(State)
-print("Button was pressed")
-end
-
-Page1:newBtn("Normal Button!", ButtonPress, true) -- true will indicate if it is a normal button.
-
-function SliderChange(State)
-print("Slider changed to: "..State)
-end
-
-Page1:newSlider("Slider",SliderChange,50,100,30) -- Title, Callback, Min, Max, StartPoint
-
-function TextBoxChange(State)
-print("Text changed to: "..State)
-end
-
-Page1:newTextbox("Title",TextBoxChange,"Default",false) -- Name, Callback, Default Text, No Callback on run
-
-function KeybindDown()
-    print("Key down.")
-end
-
-Page1:newBind("Title", KeybindDown, Enum.KeyCode.E) -- Title, Callback, Default Bind
-
-function ColorChanged(Color)
-    print(Color)
-end
-
-Page1:newColorPicker("Title", ColorChanged, Color3.new(255,0,0)) -- Name, Callback, DefaultColor
-
+local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/dirt",true))()
+local Table = {}
+local window = Lib:CreateWindow("Nice")
+window:Section("Section")
+window:Button("Button",function()
+   print("Nice")
+end)
+window:Toggle("Toggle",{location = Table, flag = "Toggle"},function()
+   print(Table["Toggle"])
+end)
+window:Slider("Slider",{location = Table, min = 1, max = 64, default = 32, precise = true --[[ 0.00 instead of 0 ]], flag = "Slider"},function()
+   print(Table["Slider"])
+end)
+window:Dropdown("Dropdown",{location = Table,flag = "Dropdown",search = true --[[AddsSearchBar]], list = {"1","2","3","4","5","6","7","8","9","0"} --[[Wont work when PlayerList = true]], PlayerList = true --[[ Turns the list into the players in the server ]]},function()
+   print(Table["Dropdown"])
+end)
+window:Bind("KeyBind",{location = Table, flag = "KeyBind", default = Enum.KeyCode.B},function() -- Automatically stops when the gui is removed
+   print(Table["KeyBind"])
+end)
+window:Box("Box",{location = Table,flag = "Box", type = "number" --[[ Only Numbers automatically on false ]], hold = "Numbers" --[[ PlaceHolderText ]]},function()
+   print(Table["Box"])
+end)
+window:Search(Color3.fromRGB(255,0,255) --[[nil = Yellow]]) -- Ez searcher for if you have a lot of things
+window:String({string = "String"})
