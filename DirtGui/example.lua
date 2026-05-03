@@ -1,4 +1,4 @@
-local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/dirt",true))()
+local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/KUYKUBZ/Gui/refs/heads/main/DirtGui/src.luau",true))()
 local Table = {}
 local window = Lib:CreateWindow("Nice")
 window:Section("Section")
